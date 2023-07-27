@@ -1,6 +1,6 @@
 var camera = view_get_camera(0)
 
-lighting = -2
+lighting = -1
 
 application_surface_draw_enable(false)
 

@@ -1,4 +1,5 @@
-           target_x = oPlayer.x
+
+		 target_x = oPlayer.x
             target_y = oPlayer.y
 
 if IsHit and state != enemystate.dashing

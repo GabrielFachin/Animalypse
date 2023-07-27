@@ -91,6 +91,8 @@ y += vm
 if hp <= 0
 {
 	
+	state = enemystate.dead
+	
 oPlayer.hp += oWeapon.lifesteal
 
 global.Enemies --
@@ -121,8 +123,7 @@ image_index = drop_sprite
 }
 
 }
-	
-    instance_destroy()
+
 }
 
 

@@ -1,3 +1,8 @@
+//BodiesSurf = -2
+
+BodiesSurf = surface_create(room_width,room_height)
+
+
 col = make_color_rgb(15,15,15)
 radius = 30
 
@@ -40,6 +45,7 @@ enum enemystate
 	evading,
 	shooting,
 	in_range,
+	dead,
 }
 
 

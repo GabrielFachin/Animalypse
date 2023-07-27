@@ -1,7 +1,7 @@
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
-varying vec4  FragColor;
+//varying vec4  FragColor;
 
 uniform sampler2D lighting;
 void main( )

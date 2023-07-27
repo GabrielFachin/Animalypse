@@ -108,6 +108,7 @@
     {"id":{"name":"ShLighting","path":"shaders/ShLighting/ShLighting.yy",},},
     {"id":{"name":"sMainCharacter","path":"sprites/sMainCharacter/sMainCharacter.yy",},},
     {"id":{"name":"oSpawner","path":"objects/oSpawner/oSpawner.yy",},},
+    {"id":{"name":"ShGrey","path":"shaders/ShGrey/ShGrey.yy",},},
     {"id":{"name":"sReload","path":"sprites/sReload/sReload.yy",},},
     {"id":{"name":"tGround","path":"tilesets/tGround/tGround.yy",},},
     {"id":{"name":"Pause","path":"scripts/Pause/Pause.yy",},},
