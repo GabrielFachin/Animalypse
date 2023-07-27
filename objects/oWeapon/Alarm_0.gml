@@ -1,0 +1,1 @@
+ammo = max_ammo
