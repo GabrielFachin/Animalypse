@@ -10,20 +10,7 @@ draw_sprite_ext(sHudXpBar,-1,4,17,global.xp/global.maxXP,1,0,color,alpha)
 else
 draw_sprite_ext(sHudXpBar,-1,4,17,1,1,0,color,alpha)
 
-
-draw_sprite_ext(sAmmoBar,-1,guiW - 15, guiH / 2,1,3,0,c_white,1)
-
-
-////draw bullets on the bar
-
-//var __y = sprite_get_height(sAmmoBar)
-
-//var _y = (__y * AmmoHei) +  ((__y * AmmoHei)/2)
-
-//draw_sprite(sAmmoCount,-1, guiW - 15, _y)
-
-////for (var i = 0; i < oWeapon.ammo; i ++)
-
+draw_text(630,330,string(oWeapon.ammo) + "/" + string(oWeapon.max_ammo))
 
 
 actual_hp = clamp(oPlayer.hp,0,oPlayer.max_hp) / oPlayer.max_hp

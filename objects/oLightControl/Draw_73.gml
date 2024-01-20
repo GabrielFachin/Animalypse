@@ -1,6 +1,6 @@
-var wid = surface_get_width(application_surface)
+var wid = window_get_width()
 
-var hei = surface_get_height(application_surface)
+var hei = window_get_height()
 
 var camera = view_get_camera(0)	
 

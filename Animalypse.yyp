@@ -60,7 +60,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.6.0.89",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"oDasher","path":"objects/oDasher/oDasher.yy",},},
@@ -109,6 +109,7 @@
     {"id":{"name":"sMainCharacter","path":"sprites/sMainCharacter/sMainCharacter.yy",},},
     {"id":{"name":"oSpawner","path":"objects/oSpawner/oSpawner.yy",},},
     {"id":{"name":"ShGrey","path":"shaders/ShGrey/ShGrey.yy",},},
+    {"id":{"name":"oPauseControl","path":"objects/oPauseControl/oPauseControl.yy",},},
     {"id":{"name":"sReload","path":"sprites/sReload/sReload.yy",},},
     {"id":{"name":"tGround","path":"tilesets/tGround/tGround.yy",},},
     {"id":{"name":"Pause","path":"scripts/Pause/Pause.yy",},},
@@ -140,6 +141,7 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
+  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
   ],

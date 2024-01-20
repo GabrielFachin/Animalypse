@@ -56,6 +56,7 @@
     {"name":"oWeapon","order":2,"path":"objects/oWeapon/oWeapon.yy",},
     {"name":"oSpawner","order":4,"path":"objects/oSpawner/oSpawner.yy",},
     {"name":"ShGrey","order":2,"path":"shaders/ShGrey/ShGrey.yy",},
+    {"name":"oPauseControl","order":3,"path":"objects/oPauseControl/oPauseControl.yy",},
     {"name":"sReload","order":10,"path":"sprites/sReload/sReload.yy",},
     {"name":"tGround","order":1,"path":"tilesets/tGround/tGround.yy",},
     {"name":"Pause","order":3,"path":"scripts/Pause/Pause.yy",},

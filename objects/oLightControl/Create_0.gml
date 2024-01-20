@@ -2,10 +2,6 @@ var camera = view_get_camera(0)
 
 lighting = -1
 
-application_surface_draw_enable(false)
-
-alarm[0] = 10
-
 
 _color[0] = 180
 _color[1] = 150

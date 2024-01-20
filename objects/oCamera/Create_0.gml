@@ -8,9 +8,12 @@ global.windowH = 720
 
 window_set_size(global.windowW,global.windowH)
 
-global.cmw = 640 
-global.cmh = 360 
+global.cmw = 544 //640 ou 544
+global.cmh = 306 //360 ou 306
 
+surface_resize(application_surface,global.cmw + 1,global.cmh + 1)
+
+application_surface_draw_enable(false)
 
 global.follow = oPlayer
 

@@ -19,7 +19,10 @@ y = clamp(y,180,hei - 180) // + 180, max - 180
 }
 
 
-camera_set_view_pos(view_camera[0], x-(global.cmw*0.5), y-(global.cmh*0.5))
+camera_set_view_pos(
+view_camera[0],
+floor(x-(global.cmw*0.5)),
+floor(y-(global.cmh*0.5)))
 
 camera_set_view_size(view_camera[0],global.cmw,global.cmh)
 
