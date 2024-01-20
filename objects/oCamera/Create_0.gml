@@ -8,8 +8,8 @@ global.windowH = 720
 
 window_set_size(global.windowW,global.windowH)
 
-global.cmw = 544 //640 ou 544
-global.cmh = 306 //360 ou 306
+global.cmw = 640 //640 ou 544
+global.cmh = 360 //360 ou 306
 
 surface_resize(application_surface,global.cmw + 1,global.cmh + 1)
 

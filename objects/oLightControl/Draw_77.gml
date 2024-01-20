@@ -1,5 +1,7 @@
 surface_set_target(lighting)
 
+shader_set_uniform_f_array(uCol,color_mix)
+
 var _scale = window_get_width()/global.cmw
 
 gpu_set_blendmode_ext(bm_dest_color,bm_zero)
@@ -13,7 +15,7 @@ _scale,
 0,
 c_white,
 1.0)
-//draw_surface_stretched(application_surface,0,0,window_get_width(),window_get_height())
+
 
 
 gpu_set_blendmode(bm_normal)

@@ -20,6 +20,7 @@
     {"name":"Scenarios","order":5,"path":"folders/Sprites/Scenarios.yy",},
     {"name":"Tiles","order":3,"path":"folders/Sprites/Tiles.yy",},
     {"name":"Weapons","order":4,"path":"folders/Sprites/Weapons.yy",},
+    {"name":"Lighting","order":8,"path":"folders/Scripts/Lighting.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oDasher","order":1,"path":"objects/oDasher/oDasher.yy",},
@@ -47,7 +48,6 @@
     {"name":"sSlime2","order":2,"path":"sprites/sSlime2/sSlime2.yy",},
     {"name":"sSlime","order":1,"path":"sprites/sSlime/sSlime.yy",},
     {"name":"sAmmoCount","order":8,"path":"sprites/sAmmoCount/sAmmoCount.yy",},
-    {"name":"TimeManager","order":7,"path":"scripts/TimeManager/TimeManager.yy",},
     {"name":"sKatana","order":4,"path":"sprites/sKatana/sKatana.yy",},
     {"name":"sLvlUpgrade","order":2,"path":"sprites/sLvlUpgrade/sLvlUpgrade.yy",},
     {"name":"sGunFire","order":8,"path":"sprites/sGunFire/sGunFire.yy",},

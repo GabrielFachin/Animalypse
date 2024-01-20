@@ -1,5 +1,3 @@
-var resizek = keyboard_check_pressed(ord("F"))
-
 xTo = global.follow.x
 yTo = global.follow.y
 
@@ -31,18 +29,6 @@ global.camerabottom = x - global.cmw / 2
 global.cameraright = x + global.cmh / 2
 global.cameraleft = x - global.cmh / 2
 
-if keyboard_check_pressed(vk_escape)
-{
-global.totaldamage = 0
-}
-
-if resizek 
-{
-	if window_get_fullscreen()
-	window_set_fullscreen(false)
-	else
-	window_set_fullscreen(true)
-}
 
 if keyboard_check_pressed(vk_up)
 {

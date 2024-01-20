@@ -272,9 +272,9 @@ break
 
 direction = point_direction(x,y,mouse_x,mouse_y)
 
-if direction > 90 and direction < 270 and state != State.Dashing
+if direction > 90 and direction < 270
 image_xscale = -1
-else if  state != State.Dashing
+else 
 image_xscale = 1
 
 var mv_dir = point_direction(x,y, x+hm, y +vm)
