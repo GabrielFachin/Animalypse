@@ -24,6 +24,10 @@ var dshk = keyboard_check_pressed(vk_space)
 
  hm = rk - lk
  vm = dk - uk
+ 
+ if hm!= 0
+ truehm = hm
+ 
 
 if state != State.Dashing
 {
@@ -276,6 +280,9 @@ if direction > 90 and direction < 270
 image_xscale = -1
 else 
 image_xscale = 1
+
+if state = State.Dashing
+image_xscale = sign(truehm)
 
 var mv_dir = point_direction(x,y, x+hm, y +vm)
 

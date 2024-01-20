@@ -21,6 +21,7 @@
     {"name":"Tiles","order":3,"path":"folders/Sprites/Tiles.yy",},
     {"name":"Weapons","order":4,"path":"folders/Sprites/Weapons.yy",},
     {"name":"Lighting","order":8,"path":"folders/Scripts/Lighting.yy",},
+    {"name":"Lighting","order":4,"path":"folders/Objects/Controlers/Lighting.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oDasher","order":1,"path":"objects/oDasher/oDasher.yy",},
@@ -54,6 +55,7 @@
     {"name":"sXP","order":3,"path":"sprites/sXP/sXP.yy",},
     {"name":"oBullet","order":2,"path":"objects/oBullet/oBullet.yy",},
     {"name":"oWeapon","order":2,"path":"objects/oWeapon/oWeapon.yy",},
+    {"name":"ShLighting","order":3,"path":"shaders/ShLighting/ShLighting.yy",},
     {"name":"oSpawner","order":4,"path":"objects/oSpawner/oSpawner.yy",},
     {"name":"ShGrey","order":2,"path":"shaders/ShGrey/ShGrey.yy",},
     {"name":"oPauseControl","order":3,"path":"objects/oPauseControl/oPauseControl.yy",},

@@ -1,17 +1,26 @@
-function AddKeytime(red,green,blue){
+function AddKeytime(red,green,blue,con,sat,brt,moonS,minB){
 
 if (is_nan(color[0,0])) 
 {
 var i = 0
 } else {
-	var i = array_length(color[0])
+	var i = array_length(color)
 }
 
 
 //key times
 color[i,0] = argument0/255
-color[i,1] = argument0/255
-color[i,2] = argument0/255
+color[i,1] = argument1/255
+color[i,2] = argument2/255
+
+
+con_sat_brt[i,0] = argument3;
+con_sat_brt[i,1] = argument4;
+con_sat_brt[i,2] = argument5;
+
+con_sat_brt[i,3] = argument6;
+con_sat_brt[i,4] = argument7;
+
 
 
 

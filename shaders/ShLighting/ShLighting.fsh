@@ -1,32 +1,36 @@
+//
+// Simple passthrough fragment shader
+//
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 
-//varying vec4  FragColor;
+uniform vec3 col;
+uniform float con_sat_brt[5];
 
-uniform sampler2D lighting;
-void main( )
+#define contrast		con_sat_brt[0]
+#define saturation		con_sat_brt[1]
+#define brightness		con_sat_brt[2]
+#define MoonStrenght	con_sat_brt[3]
+#define MinBrightness	con_sat_brt[4]
+
+
+void main()
 {
-    vec4 mult = texture2D(lighting, v_vTexcoord);
-    vec4 main = texture2D(gm_BaseTexture, v_vTexcoord);
-    vec4 finalcol;
-	vec4 lightcol;
-
-	lightcol.r = mult.r * 3.; //3
-	lightcol.b = mult.b * 3.; //3
-	lightcol.g = mult.g * 3.; //3
-
-
-	finalcol.r = mix(main.r,main.r*lightcol.r,mult.r);
-	finalcol.g = mix(main.g,main.g*lightcol.g,mult.g);
-	finalcol.b = mix(main.b,main.b*lightcol.b,mult.b);
-	finalcol.a = 1.;
-
-	float darkness = .7; //.7
-
-	finalcol.r = mix(finalcol.r,finalcol.r*darkness,1.-mult.r);
-	finalcol.g = mix(finalcol.g,finalcol.g*darkness,1.-mult.g);
-	finalcol.b = mix(finalcol.b,finalcol.b*darkness,1.-mult.b);
-            
-    gl_FragColor = finalcol;
-} 
-
+	 vec3 out_col	= texture2D( gm_BaseTexture, v_vTexcoord ).rgb;
+	
+	float grey		= dot(out_col, vec3(0.299, 0.587, 0.114));
+	
+	// add contrast:
+	out_col			= (out_col - 0.5) * contrast + 0.5;
+	
+	// add saturation:
+	out_col			= mix(vec3(grey), out_col, saturation);
+	
+	//MoonLight
+	out_col = out_col + MoonStrenght * max(grey - MinBrightness, 0.0);
+	
+	// add brightnes:
+	out_col			= out_col + brightness;
+	
+    gl_FragColor = vec4(out_col * col, 1.0);
+}
