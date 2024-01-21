@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oLight",
+  "name": "oLightPar",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objects/Parents.yy",
+    "name": "Lighting",
+    "path": "folders/Objects/Lighting.yy",
   },
   "parentObjectId": null,
   "persistent": false,

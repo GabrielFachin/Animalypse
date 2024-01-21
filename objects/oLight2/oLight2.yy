@@ -1,15 +1,18 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oColorOverlay",
+  "name": "oLight2",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
     "name": "Lighting",
-    "path": "folders/Objects/Controlers/Lighting.yy",
+    "path": "folders/Objects/Lighting.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oLightPar",
+    "path": "objects/oLightPar/oLightPar.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -25,7 +28,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "sLight2",
+    "path": "sprites/sLight2/sLight2.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

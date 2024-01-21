@@ -1,15 +1,18 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oParDetectable",
+  "name": "oLight1",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objects/Parents.yy",
+    "name": "Lighting",
+    "path": "folders/Objects/Lighting.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oLightPar",
+    "path": "objects/oLightPar/oLightPar.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -25,7 +28,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "sLight1",
+    "path": "sprites/sLight1/sLight1.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }
