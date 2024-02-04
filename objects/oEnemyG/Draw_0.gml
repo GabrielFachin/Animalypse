@@ -1,30 +1,10 @@
+
 draw_self()
+
 
 event_inherited();
 
-     switch state
-	 {
-	 case enemystate.dead:
-	 {
-		 if !surface_exists(BodiesSurf)
-		 BodiesSurf = surface_create(room_width,room_height)
-		 else
-		 {
-			 surface_set_target(BodiesSurf)
-			 shader_set(ShGrey)
-			 draw_self()
-			 shader_reset()
-			 surface_reset_target()
-			 draw_surface(BodiesSurf,0,0)
-			 instance_destroy()
-		 }
-		 
-		 radius = 0
-		 
-		 
-		 break
-	  }
-	 }
+   
 
 
 if IsHit{

@@ -1,6 +1,4 @@
 
-
-
 if global.pause = true{
 image_speed = 0
 exit
@@ -20,7 +18,6 @@ image_xscale = -1
 #endregion
 
 }
-
 
 #region collision(and attack)
 
@@ -124,7 +121,9 @@ image_index = drop_sprite
 
 }
 
+DeathManager(sprite_index,image_index,darken,id)
 }
+
 
 
 #endregion

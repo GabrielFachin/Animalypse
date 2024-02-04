@@ -1,5 +1,6 @@
 var _blink = 8
 
+
  if alarm[0] % _blink <= _blink/2 
   draw_self()
 

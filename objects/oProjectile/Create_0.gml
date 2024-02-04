@@ -13,5 +13,6 @@ locked = 0
 isneon = false
 
 
-col = make_color_rgb(100,80,0)
-radius = 10
+intensity = 0.6
+col = make_color_rgb(200,200,200)
+radius = 0.1

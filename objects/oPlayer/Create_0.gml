@@ -31,8 +31,9 @@ dsh_spd = mv_spd *dsh_spd_multiplier
 
 OnDash = false
 
-col = make_color_rgb(15,15,15)
-radius = 50
+intensity = 0.4
+col = make_color_rgb(150,110,0)
+radius = 0.9
 
 light = false
 

@@ -1,6 +1,8 @@
 randomize()
 
 
+global.CorpsesSurf = -1
+
 
 color = c_white
 alpha = 1

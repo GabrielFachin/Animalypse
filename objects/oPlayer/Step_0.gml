@@ -356,3 +356,5 @@ game_end()
 
 y += vm
 x += hm
+
+depth = -y

@@ -3,8 +3,11 @@
 BodiesSurf = surface_create(room_width,room_height)
 
 
-col = make_color_rgb(15,15,15)
-radius = 30
+intensity = 0.2
+col = make_color_rgb(200,200,200)
+radius = 0.1
+
+darken = 0.5
 
 tot_spd = 1.2
 spd = tot_spd

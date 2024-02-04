@@ -4,8 +4,9 @@ multiplier = 1
 
 damage *= multiplier
 
-col = make_color_rgb(200,50,50)
-radius = 15
+intensity = 0.9
+col = make_color_rgb(190,0,100)
+radius = 0.09
 
 
 

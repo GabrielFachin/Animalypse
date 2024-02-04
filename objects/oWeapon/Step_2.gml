@@ -167,3 +167,4 @@ global.damage_multiplier = focus_multiplier
 else
 global.damage_multiplier = 1
 
+depth = -y -1
