@@ -1,3 +1,14 @@
+camera = view_camera[0]
+
+camera_x = camera_get_view_x(camera)
+camera_y = camera_get_view_y(camera)
+
+shaking = false
+shake_amount = 1
+shake_timer = 0.1
+
+
+
 
 
 global.displayH = display_get_height()

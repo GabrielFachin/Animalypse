@@ -121,9 +121,9 @@ image_index = drop_sprite
 
 }
 
-DeathManager(sprite_index,image_index,darken,id)
+DeathManager(sprite_index,deathsprite,darken,id)
 }
 
-
+depth = -y
 
 #endregion

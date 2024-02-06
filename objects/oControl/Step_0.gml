@@ -27,7 +27,7 @@ ds_list_add(upgrade_list,_upgrade)
 
 }
 
-//global.time += wave_duration
+global.time += wave_duration
 
 //global.time = clamp(global.time,0,global.cap)
 

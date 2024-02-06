@@ -5,6 +5,8 @@ spd = tot_spd
 
 dash_start_range = 150
 
+deathsprite = dead_bat
+
 
 dash_delay = 60
 total_dash_cooldown = 320

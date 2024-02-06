@@ -13,8 +13,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"contact_dmg","path":"objects/oEnemyG/oEnemyG.yy",},"value":"5",},
   ],
   "parent": {
-    "name": "Lvl1",
-    "path": "folders/Objects/Enemies/Vanilla/Small/Lvl1.yy",
+    "name": "Enemies",
+    "path": "folders/Objects/Enemies.yy",
   },
   "parentObjectId": {
     "name": "oEnemyG",

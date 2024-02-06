@@ -23,8 +23,9 @@ surface_reset_target()
 instance_destroy(entity)
 shader_reset()
 
-}
 
+}
+	
 }
 
 

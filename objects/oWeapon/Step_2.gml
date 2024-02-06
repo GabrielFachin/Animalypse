@@ -108,6 +108,11 @@ if current_delay = 0 and projectile != -1 and oPlayer.state != State.Dashing
 		image_xscale = other.projectile_size
 		}
 		
+		with(oCamera)
+		event_user(0)
+		
+		
+		
 		// cria um projetil fantasma de dentro da arma pra afetar inimigos que passarem do spawn da bala original
 		with(instance_create_layer(x , y, "Projectiles",projectile))
 		{
@@ -167,4 +172,4 @@ global.damage_multiplier = focus_multiplier
 else
 global.damage_multiplier = 1
 
-depth = -y -1
+depth = -oPlayer.y - 10

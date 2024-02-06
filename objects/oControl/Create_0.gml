@@ -110,6 +110,7 @@ hp_delay = 0
 #macro wave_duration (12 / ( 10 * room_speed * 60))
 // 12 waves com uma média de 10 minutos totais
 
+#macro room_speed game_get_speed(gamespeed_fps)
 
 
 ds_player_upgrades_list = ds_list_create()

@@ -3,7 +3,7 @@
 ps = keyboard_check_pressed(vk_escape)
 
 if ps and global.levelup = false
-Pause()
+instance_create_depth(x,y,0,oPauseControl)
 
 
 if global.pause = true{
@@ -350,6 +350,7 @@ if place_meeting(x + hm,y,oCollision){
 hm = 0
 }
 
+depth = -y
 
 if hp <= 0
 game_end()
@@ -357,4 +358,3 @@ game_end()
 y += vm
 x += hm
 
-depth = -y

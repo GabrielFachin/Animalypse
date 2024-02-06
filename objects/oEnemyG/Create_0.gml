@@ -13,6 +13,7 @@ tot_spd = 1.2
 spd = tot_spd
 self_pool = "Common Enemies"
 
+deathsprite = 0
 
 min_xp_drop = 1
 max_xp_drop = 2 
