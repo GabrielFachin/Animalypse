@@ -33,12 +33,7 @@ gpu_set_tex_filter(true)
 		
 		with(oEProjectile)
 		draw_sprite_ext(sLight1,-1,x,y,radius,radius,1,col,intensity)
-		
-		//with(oPlayer)
-		//draw_sprite_ext(sLight1,-1,x,y,0.5,0.5,1,c_white,1)
-		
-		//with(oPlayer)
-		//draw_sprite_ext(sLight1,-1,x,y,0.5,0.5,1,c_white,1)
+
 		
 		
 		gpu_set_tex_filter(false); // optional

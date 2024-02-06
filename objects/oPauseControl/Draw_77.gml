@@ -1,25 +1,57 @@
-if room = PauseRoom
+var _scale = window_get_width()/global.cmw
+
+var window_w = window_get_width()
+var window_h = window_get_height()
+
+var camera = view_get_camera(0)
+
+var xview = camera_get_view_x(camera)
+var yview = camera_get_view_y(camera)
+
+var viewh = camera_get_view_height(camera)
+var vieww = camera_get_view_width(camera)
+
+//camera_apply(camera)
+
+//@ se for um pause real e não o level up
+
+if global.levelup = false
 {
 	
-	var _scale = window_get_width()/global.cmw
-	
-	surface_set_target(application_surface)
-		if !surface_exists(pause_sur)
-		{
-	pause_sur = surface_create(global.windowW,global.windowH)
-	buffer_set_surface(pause_sur_buffer,pause_sur,0)
-		}
-	else
-	draw_surface(pause_sur,0,0)
 
-	surface_reset_target()
-	
-draw_surface_ext(application_surface,
-0,
-0 ,
-_scale,
-_scale,
-0,
-c_white,
-1.0)
+if window_w and window_h > 0
+{
+	if !sprite
+	{
+
+	if !surface_exists(PauseSurf) 
+	{
+		
+	PauseSurf = surface_create(window_w,window_h)
+
+	}
+
+
+if !copy
+{
+surface_copy(PauseSurf,0,0,application_surface)
+copy = true
+}
+
+
+pause_sprite = sprite_create_from_surface(PauseSurf,0,0,surface_get_width(PauseSurf),surface_get_height(PauseSurf),false,false,0,0)
+
+sprite = true
+	}
+}
+
+
+draw_sprite_ext(pause_sprite,-1,0,0,_scale,_scale,0,c_white,1)
+
+
+
+if surface_exists(PauseSurf)
+surface_free(PauseSurf)
+
+instance_deactivate_all(true)
 }

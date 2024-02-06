@@ -1,5 +1,7 @@
+DrawShadow(id,0.33,0.33,2.2)
 
 draw_self()
+
 
 
 event_inherited();

@@ -5,7 +5,7 @@ camera_y = camera_get_view_y(camera)
 
 shaking = false
 shake_amount = 1
-shake_timer = 0.1
+shake_timer = 0.05
 
 
 
