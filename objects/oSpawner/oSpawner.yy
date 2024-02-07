@@ -33,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sSlime4",
-    "path": "sprites/sSlime4/sSlime4.yy",
+    "name": "sSpider",
+    "path": "sprites/sSpider/sSpider.yy",
   },
   "spriteMaskId": null,
   "visible": true,

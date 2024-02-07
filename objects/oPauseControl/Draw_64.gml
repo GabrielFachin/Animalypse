@@ -1,3 +1,6 @@
+if global.levelup = false and global.pause = true
+{
+
 var guiw = display_get_gui_width()
 
 var guih = display_get_gui_height()
@@ -13,4 +16,7 @@ draw_set_alpha(1)
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
 
+
+
 draw_text(guiw/2,guih/2,"PAUSED")
+}

@@ -39,8 +39,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "sSlime2",
-    "path": "sprites/sSlime2/sSlime2.yy",
+    "name": "sSlime",
+    "path": "sprites/sSlime/sSlime.yy",
   },
   "spriteMaskId": null,
   "visible": true,

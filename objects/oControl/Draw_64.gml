@@ -3,7 +3,8 @@ var guiH = display_get_gui_height()
 var guiW = display_get_gui_width()
 
 
-
+if !global.levelup
+{
 draw_sprite(sHudBar,-1,2,2)
 if global.xp <= global.maxXP
 draw_sprite_ext(sHudXpBar,-1,4,17,global.xp/global.maxXP,1,0,color,alpha)
@@ -25,6 +26,7 @@ draw_sprite_ext(sHudHpBar,-1,4,4,oPlayer.hp/oPlayer.max_hp,1,0,hpcolor,hpalpha)
 else
 draw_sprite_ext(sHudHpBar,-1,4,4,1,1,0,hpcolor,hpalpha)
 
+}
 
 var sprh = sprite_get_height(sLvlUpgrade)
 var sprw = sprite_get_width(sLvlUpgrade)
@@ -42,7 +44,10 @@ var my = device_mouse_y_to_gui(0)
 
 if global.levelup{
 	
-draw_set_alpha(0.5)
+	if	!instance_exists(oPauseControl)
+	instance_create_depth(0,0,0,oPauseControl)
+	
+draw_set_alpha(0.8)
 draw_rectangle_color(0,0,display_get_gui_width(),display_get_gui_height(),c_black,c_black,c_black,c_black,false)
 draw_set_alpha(1.0)
 	
@@ -59,8 +64,8 @@ draw_set_alpha(1.0)
    if _click
    {
    ds_list_add(ds_player_upgrades_list,_name)
-   global.levelup = false
    global.pause = false
+   global.levelup = false
    oPlayer.upgrades_array[_y] ++
    Upgrades(_name)
    }

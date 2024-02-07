@@ -2,11 +2,15 @@
 
 ps = keyboard_check_pressed(vk_escape)
 
-if ps and global.levelup = false
+if ps and global.levelup = false and alarm[6] = -1
+{
+global.pause = true
 instance_create_depth(x,y,0,oPauseControl)
+}
 
+//show_debug_message(instance_exists(oPauseControl))
 
-if global.pause = true{
+if instance_exists(oPauseControl){
 image_speed = 0
 exit
 }

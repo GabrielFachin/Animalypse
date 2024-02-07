@@ -4,6 +4,9 @@ function DeathManager(sprite,index,intensity,entity)
 	var wid = window_get_width()
 	var hei = window_get_height()
 	
+	if wid and hei > 0
+	{
+	
 if !surface_exists(global.CorpsesSurf)
 global.CorpsesSurf = surface_create(wid,hei)
 else
@@ -27,7 +30,7 @@ shader_reset()
 }
 	
 }
-
+}
 
 function Dash(damage,entity,distance,duration)
 {

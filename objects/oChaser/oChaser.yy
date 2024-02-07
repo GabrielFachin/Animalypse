@@ -35,8 +35,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sSlime",
-    "path": "sprites/sSlime/sSlime.yy",
+    "name": "sHedgehog",
+    "path": "sprites/sHedgehog/sHedgehog.yy",
   },
   "spriteMaskId": null,
   "visible": true,

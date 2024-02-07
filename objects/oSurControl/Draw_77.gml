@@ -4,7 +4,6 @@ var hei = window_get_height()
 
 var camera = view_get_camera(0)
 
-
 if !surface_exists(srf_lights)
 {
 	srf_lights = surface_create(wid,hei)

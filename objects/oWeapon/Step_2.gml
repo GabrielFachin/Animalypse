@@ -1,4 +1,4 @@
-if global.pause = true{
+if instance_exists(oPauseControl){
 image_speed = 0
 exit
 }

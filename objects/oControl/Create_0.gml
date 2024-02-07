@@ -80,7 +80,7 @@ hp_delay = 0
 
 #macro dash_start 30
 
-#macro dash_end 37
+#macro dash_end 38
 
 #endregion
 

@@ -15,10 +15,10 @@ var vieww = camera_get_view_width(camera)
 
 //@ se for um pause real e não o level up
 
-if global.levelup = false
-{
-	
 
+
+
+	
 if window_w and window_h > 0
 {
 	if !sprite
@@ -43,15 +43,29 @@ pause_sprite = sprite_create_from_surface(PauseSurf,0,0,surface_get_width(PauseS
 
 sprite = true
 	}
+	pausescreen = draw_sprite_ext(pause_sprite,-1,0,0,_scale,_scale,0,c_white,1)
 }
 
 
-draw_sprite_ext(pause_sprite,-1,0,0,_scale,_scale,0,c_white,1)
+
 
 
 
 if surface_exists(PauseSurf)
 surface_free(PauseSurf)
 
+if !off
+{
 instance_deactivate_all(true)
+if global.levelup
+{
+instance_activate_object(oControl)
+instance_activate_object(oWeapon)
+instance_activate_object(oPlayer)
+instance_activate_object(oCursor)
+instance_activate_object(oCamera)
+instance_activate_object(oCollision)
 }
+off = true
+}
+

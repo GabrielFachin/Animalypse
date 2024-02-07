@@ -6,7 +6,10 @@ global.totaldamage += oWeapon.damage
 other._dir = point_direction(other.x,other.y,xprevious,yprevious)
 piercing --
  if piercing <= 0
+ {
  instance_destroy(self)
+ //layer_sprite_create()
+ }
  
  other.IsHit = true
  
