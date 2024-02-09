@@ -48,7 +48,7 @@ if global.levelup{
 	instance_create_depth(0,0,0,oPauseControl)
 	
 draw_set_alpha(0.8)
-draw_rectangle_color(0,0,display_get_gui_width(),display_get_gui_height(),c_black,c_black,c_black,c_black,false)
+draw_rectangle_color(0-3,0-3,display_get_gui_width()+3,display_get_gui_height()+3,c_black,c_black,c_black,c_black,false)
 draw_set_alpha(1.0)
 	
  for (var i = 0; i < oPlayer.upgrade_num ; i++){

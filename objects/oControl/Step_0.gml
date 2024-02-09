@@ -29,7 +29,7 @@ ds_list_add(upgrade_list,_upgrade)
 
 global.time += wave_duration
 
-//global.time = clamp(global.time,0,global.cap)
+global.time = clamp(global.time,0,global.cap)
 
 if global.time = 24
 global.time = 0
@@ -38,5 +38,3 @@ if keyboard_check_pressed(vk_f5)
 global.debug = !global.debug
 
 
-if keyboard_check_pressed(vk_enter)
-global.time ++

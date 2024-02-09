@@ -4,10 +4,6 @@ exit
 }
 else
 image_speed = global.total_game_spd
-
-
-if place_meeting(x,y,oCollision)
-instance_destroy()
  
 travelled_distance += oWeapon.bulletspeed
  

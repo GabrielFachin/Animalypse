@@ -1,3 +1,6 @@
+if global.pause = false
+{
+
 var wid = window_get_width()
 
 var hei = window_get_height()
@@ -60,3 +63,5 @@ c_white,
 1.0)
 
 shader_reset()
+
+}

@@ -18,4 +18,12 @@ dash_dist = 6
 Ddir = 0
 
 state = enemystate.approaching
-do_contact_damage = false
+do_contact_damage = true
+
+
+radius = 1
+
+
+wid = 0.7
+hei = 0.7
+yoffset = 16

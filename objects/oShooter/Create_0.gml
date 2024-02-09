@@ -12,7 +12,7 @@ projectile_speed = 5
 
 projectile_damage = 20
 
-hp = 3
+hp = 3//3
 
 shoot_cooldown = random_range(shoot_cd_min,shoot_cd_max) 
 
@@ -29,3 +29,10 @@ tot_spd = 1
 spd = tot_spd
 
 waiting = 300 + random_range(-60,60)
+
+radius = 1
+
+
+wid = 1
+hei = 1
+yoffset = 6

@@ -1,18 +1,14 @@
-DrawShadow(id,0.33,0.33,2.2)
+DrawShadow(id,wid,hei,yoffset)
 
 draw_self()
-
-
 
 event_inherited();
 
-   
-
 
 if IsHit{
-gpu_set_fog(true,c_white,0,0)
+shader_set(ShWhite)
 draw_self()
-gpu_set_fog(false,c_white,0,0)
+shader_reset()
 }
 
 if global.debug = true

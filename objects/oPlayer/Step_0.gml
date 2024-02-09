@@ -8,7 +8,7 @@ global.pause = true
 instance_create_depth(x,y,0,oPauseControl)
 }
 
-//show_debug_message(instance_exists(oPauseControl))
+
 
 if instance_exists(oPauseControl){
 image_speed = 0
@@ -32,7 +32,7 @@ var dshk = keyboard_check_pressed(vk_space)
  if hm!= 0
  truehm = hm
  
-
+ 
 if state != State.Dashing
 {
 if hm != 0 or vm != 0
@@ -286,7 +286,17 @@ else
 image_xscale = 1
 
 if state = State.Dashing
+{
 image_xscale = sign(truehm)
+show_debug_message(image_index)
+if floor(image_index) = 36 and stoppart = false
+{
+stoppart = true
+RollEffect(x,y + 10)
+}
+}
+else if stoppart = true
+stoppart = false
 
 var mv_dir = point_direction(x,y, x+hm, y +vm)
 

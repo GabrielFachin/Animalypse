@@ -3,9 +3,9 @@
 BodiesSurf = surface_create(room_width,room_height)
 
 
-intensity = 0.2
+intensity = 0.1
 col = make_color_rgb(200,200,200)
-radius = 0.1
+radius = 0.1 
 
 darken = 0.5
 
@@ -52,6 +52,10 @@ enum enemystate
 	dead,
 }
 
+
+wid = 0.8
+hei = 0.8
+yoffset = 17
 
 oa_sensor_count = 24 //set initial sensor count
 oa_interest_sensor = array_create(oa_sensor_count) //initialize array for interest sensors

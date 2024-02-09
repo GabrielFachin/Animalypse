@@ -113,18 +113,18 @@ if current_delay = 0 and projectile != -1 and oPlayer.state != State.Dashing
 		
 		
 		
-		// cria um projetil fantasma de dentro da arma pra afetar inimigos que passarem do spawn da bala original
-		with(instance_create_layer(x , y, "Projectiles",projectile))
-		{
-		visible = false
-		radius = 0
-		travelled_distance = oWeapon.range - 5 
-		direction = other._ImgAngle + i  * 5
-		image_angle = other._ImgAngle
-		speed = other.bulletspeed
-		image_yscale = other.projectile_size
-		image_xscale = other.projectile_size
-		}
+		//// cria um projetil fantasma de dentro da arma pra afetar inimigos que passarem do spawn da bala original
+		//with(instance_create_layer(x , y, "Projectiles",projectile))
+		//{
+		//visible = false
+		//radius = 0
+		//travelled_distance = oWeapon.range  
+		//direction = other._ImgAngle + i  * 5
+		//image_angle = other._ImgAngle
+		//speed = other.bulletspeed
+		//image_yscale = other.projectile_size
+		//image_xscale = other.projectile_size
+		//}
 		
 		var __x = -lengthdir_x(length + 10,_ImgAngle)
 		var  __y = -lengthdir_y(length + 10,_ImgAngle)

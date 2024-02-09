@@ -1,11 +1,17 @@
+stoppart = false
+
 mv_spd = 3
 
 spr_speed = 8
 
-max_hp = 100
+max_hp = 100 //100
 hp = max_hp
 
 _x = 0
+
+walkpartdelay = room_speed * 0.3
+
+alarm_set(7,walkpartdelay)
 
 hm = 0
 vm = 0
