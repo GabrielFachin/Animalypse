@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oEProjectile1",
+  "name": "oSlimeBullet",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],

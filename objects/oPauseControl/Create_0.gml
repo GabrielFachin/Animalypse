@@ -1,8 +1,12 @@
+var window_w = window_get_width()
+var window_h = window_get_height()
+
 copy = false
 sprite = false
 off = false
 
 pausescreen = -1
+
 
 
 PauseSurf  = -1

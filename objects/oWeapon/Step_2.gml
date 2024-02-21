@@ -99,7 +99,6 @@ if current_delay = 0 and projectile != -1 and oPlayer.state != State.Dashing
 		
 		with(instance_create_layer(x +__x , y +__y, "Projectiles",projectile))
 		{
-		oPlayer.light = true
 		oPlayer.alarm[2] = oPlayer.lightduration
 		direction = other._ImgAngle + i  * 5
 		image_angle = other._ImgAngle
@@ -110,31 +109,16 @@ if current_delay = 0 and projectile != -1 and oPlayer.state != State.Dashing
 		
 		with(oCamera)
 		event_user(0)
-		
-		
-		
-		//// cria um projetil fantasma de dentro da arma pra afetar inimigos que passarem do spawn da bala original
-		//with(instance_create_layer(x , y, "Projectiles",projectile))
-		//{
-		//visible = false
-		//radius = 0
-		//travelled_distance = oWeapon.range  
-		//direction = other._ImgAngle + i  * 5
-		//image_angle = other._ImgAngle
-		//speed = other.bulletspeed
-		//image_yscale = other.projectile_size
-		//image_xscale = other.projectile_size
-		//}
-		
+				
 		var __x = -lengthdir_x(length + 10,_ImgAngle)
 		var  __y = -lengthdir_y(length + 10,_ImgAngle)
 		
 		
 	with instance_create_layer(x + __x , y +__y, "Instances",oBulletShell)
 	{
-	direction = other._ImgAngle - 180
-	xdist = random_range(0,20) * sign(__x)
-	ydist = random_range(0,10) * sign(__y)
+	dir = other.image_angle + random_range(-30,30)
+	xmove = irandom_range(2,6)
+	ymove = irandom_range(2,6)
 	}
 
 }

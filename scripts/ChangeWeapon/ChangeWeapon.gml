@@ -18,5 +18,6 @@ projectile_size = wp_map[? "projectile_size"]
 max_ammo = wp_map[? "max_ammo"]
 reload_time = wp_map[? "reload_time"]
 range = wp_map[? "range"]
+wield = wp_map[? "wield"]
 
 }

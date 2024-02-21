@@ -1,3 +1,3 @@
-event_inherited();
+//event_inherited();
 
-state = enemystate.chasing
+//state = enemystate.chasing

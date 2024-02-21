@@ -11,15 +11,8 @@ var yview = camera_get_view_y(camera)
 var viewh = camera_get_view_height(camera)
 var vieww = camera_get_view_width(camera)
 
-//camera_apply(camera)
-
-//@ se for um pause real e não o level up
-
-
-
-
 	
-if window_w and window_h > 0
+if window_w and window_h > 0 
 {
 	if !sprite
 	{
@@ -41,6 +34,9 @@ draw_surface(global.CorpsesSurf,0,0)
 surface_reset_target()
 }
 
+
+if instance_exists(oSurControl)
+{
 if !surface_exists(oSurControl.srf_lights)
 {
 	srf_lights = surface_create(window_w,window_h)
@@ -56,6 +52,7 @@ shader_set_uniform_f_array(oSurControl.u_col, oSurControl.color_mix);
 shader_set_uniform_f_array(oSurControl.u_con_sat_brt, oSurControl.con_sat_brt_mix);
 
 texture_set_stage(oSurControl.s_lights,oSurControl.tex_lights)
+}
 
 
 if !copy

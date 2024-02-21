@@ -20,6 +20,7 @@ ds_map_add(weapons[0],"projectile_size", 1)
 ds_map_add(weapons[0],"max_ammo", 60)
 ds_map_add(weapons[0],"reload_time", 180)
 ds_map_add(weapons[0],"range", 100)
+ds_map_add(weapons[0],"wield", 1)
 }
 
 //pistol
@@ -41,6 +42,7 @@ ds_map_add(weapons[1],"projectile_size", 1)
 ds_map_add(weapons[1],"max_ammo", 60)
 ds_map_add(weapons[1],"reload_time", 180)
 ds_map_add(weapons[1],"range", 100)
+ds_map_add(weapons[1],"wield", 2)
 }
 
 
@@ -63,14 +65,15 @@ ds_map_add(weapons[2],"projectile_size", 1)
 ds_map_add(weapons[2],"max_ammo", 60)
 ds_map_add(weapons[2],"reload_time", 180)
 ds_map_add(weapons[2],"range", 100)
+ds_map_add(weapons[2],"wield", 3)
 }
 
 //Ak
 weapons[3] =  ds_map_create(){
 ds_map_add(weapons[3],"sprite",sRifle)
-ds_map_add(weapons[3],"recoil",1)
-ds_map_add(weapons[3],"recoil_push",0.7)
-ds_map_add(weapons[3],"self_recoil_push",0.3)
+ds_map_add(weapons[3],"recoil",3) //1
+ds_map_add(weapons[3],"recoil_push",0.7) //0.7
+ds_map_add(weapons[3],"self_recoil_push",0.6)//0.6
 ds_map_add(weapons[3],"damage",1)  //1
 ds_map_add(weapons[3],"projectile",oBullet)
 ds_map_add(weapons[3],"startup",0)
@@ -84,6 +87,7 @@ ds_map_add(weapons[3],"projectile_size", 1)
 ds_map_add(weapons[3],"max_ammo", 60) //60
 ds_map_add(weapons[3],"reload_time", 180)
 ds_map_add(weapons[3],"range", 250) 
+ds_map_add(weapons[3],"wield", 3)
 
 }
 
@@ -106,6 +110,7 @@ ds_map_add(weapons[4],"projectile_size", 1)
 ds_map_add(weapons[4],"max_ammo", 60)
 ds_map_add(weapons[4],"reload_time", 180)
 ds_map_add(weapons[4],"range", 100)
+ds_map_add(weapons[4],"wield", 2)
 }
 
 //Katana
@@ -127,6 +132,7 @@ ds_map_add(weapons[5],"projectile_size", 1)
 ds_map_add(weapons[5],"max_ammo", 60)
 ds_map_add(weapons[5],"reload_time", 180)
 ds_map_add(weapons[5],"range", 100)
+ds_map_add(weapons[5],"wield", 3)
 }
 
 enum ActualWeapon
@@ -137,6 +143,14 @@ enum ActualWeapon
    Rifle,
    Knife,
    Katana,
+}
+
+enum Wield
+{
+null,
+Fists,
+SingleHand,
+BothHands,
 }
 
 

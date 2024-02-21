@@ -1,4 +1,3 @@
-
 var  dir = image_angle
 
 if ds_list_find_index(enemies_hit,other.id) = -1
@@ -13,10 +12,9 @@ piercing --
 BulletExplosion(0.2,0.2,dir,x,y)  
  }
  
- other.IsHit = true
+ other.TryHit = true
  
-other.alarm[0] = other.ivulnerability
+other.alarm[0] = other.hitduration
 
 EnemyHit(other.x,other.y,sizemin,sizemax,partmin,partmax,dir - 30,dir + 30,speedmin,speedmax,1,1.55) 
 }
-

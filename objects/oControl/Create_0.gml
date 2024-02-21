@@ -1,4 +1,3 @@
-show_debug_overlay(true)
 randomize()
 
 
@@ -81,7 +80,7 @@ hp_delay = 0
 
 #macro dash_start 30
 
-#macro dash_end 38
+#macro dash_end 37
 
 #endregion
 

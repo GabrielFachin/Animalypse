@@ -1,6 +1,6 @@
 function Item_Pool(){
 
-enum XpSprite
+enum  Tier
 {
 	Common,
 	Uncommon,
@@ -11,49 +11,27 @@ enum XpSprite
 XPs = [
 {
 	Name: "Xp LVL 1.0",
-	Rarity: "common",
-	Pool: "Common Enemies",
+	Rarity: Tier.Common,
+	Pool: EnemyTier.Common,
 	Value: 15,
-	Sprite: XpSprite.Common,
+	Sprite: Tier.Common,
 },
 
 {
 	Name: "Xp LVL 2.0",
-	Rarity: "uncommon",
-	Pool: "Common Enemies",
+	Rarity: Tier.Uncommon,
+	Pool: EnemyTier.Common,
 	Value: 30,
-	Sprite: XpSprite.Uncommon,
+	Sprite: Tier.Uncommon,
 },
 
 {
 	Name: "Xp LVL 3.0",
-	Rarity: "rare",
-	Pool: "Common Enemies",
+	Rarity: Tier.Rare,
+	Pool: EnemyTier.Common,
 	Value: 60,
-	Sprite: XpSprite.Rare,
+	Sprite: Tier.Rare,
 },
-
-{
-	Name: "Xp LVL 3.1",
-	Rarity: "common",
-	Pool: "Uncommon Enemies",
-	Value: 60,
-},
-
-{
-	Name: "Xp LVL 4.1",
-	Rarity: "uncommon",
-	Pool: "Uncommon Enemies",
-	Value: 80,
-},
-
-{
-	Name: "Boss XP LVL 1",
-	Rarity: "uncommon",
-	Pool: "Boss",
-	Value: 160,
-},
-
 
 ]
 

@@ -10,5 +10,3 @@ if global.pause = false
 	if pausescreen != undefined and pausescreen != -1
 	sprite_delete(pausescreen)
 }
-
-show_debug_message(global.pause)

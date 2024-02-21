@@ -1,9 +1,10 @@
-IsHit = false
+///@description reseta o estado do dash
 
 OnDash = false
 
-state = State.Idle
+image_speed = 1
 
-sprite_set_speed(sMainCharacter,spr_speed,spritespeed_framespersecond)
+image_index = idlestart
+state = State.Idle
 
 alarm[4] = dash_cooldown

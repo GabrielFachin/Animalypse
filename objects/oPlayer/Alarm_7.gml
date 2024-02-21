@@ -1,10 +1,6 @@
 /// @description walk particle alarm
 
-
-if state = State.Walking
-{
- WalkEffect(x+hm,y+8)
-}
+//particle creation on the walking state 
 
 alarm_set(7,walkpartdelay)
 

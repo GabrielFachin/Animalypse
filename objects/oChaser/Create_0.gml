@@ -1,17 +1,123 @@
-event_inherited();
+//Enumerators
+event_inherited()
 
-tot_spd = 1.4
-spd = tot_spd 
+//Color config set on the variable definitions
 
-hp = 5 //5
+//intensity 0.1
+//col (200,200,200)
+//radius 1
 
-wid = 1
-hei = 1
-yoffset = 6
 
+//Corpse surf value
+darken = 0.5
+
+//Speed variable definitions
+
+//tot_spd = 2.5
+spd = tot_spd
+
+
+pool = Tier.Common
+
+//attack animation duration
+attackduration = room_speed * 0.5
+
+//sets an cooldown for the attack
+attackcooldown = room_speed * 2
+
+//sets attack range
+attackrange = 10
+
+
+//animation variables
+
+//death animation
+deathstart = 4
+deathend = 6
+
+//walk animation
+walkstart = 0
+walkend = 4
+
+//attack animation
+attackstart = 7
+attackend = 9
+
+
+//amount of xp drops
+minxp = 1
+maxxp = 2
+
+
+//hp variable definitions
+
+//tot_hp = 10
+hp = tot_hp
+
+
+//dmg varible definitions
+//tot_dmg = 10
+dmg = tot_dmg
+
+
+//set knockback dealt to player
+knockback  = 3
+
+
+//movement code
+hm = 0
+vm = 0
+
+
+//flag variables
+
+//amount of time to stay on the hit state
+hitduration = 10
+
+//hit variable to trigger hit state if possible
+TryHit = false
+
+//the enemy got hit with success
+IsHit = false
+
+//keeps track of the pathfinding update rate
+newpath = false
+
+//keeps track of when the attack state starts, so we can change the sprite once to the attack sequence
+attacking = false
+
+//shadow script variables
+wid = 0.8
+hei = 0.8
+yoffset = 7
+
+//initialize target 
+target = noone
+target_x = noone
+target_y = noone
+
+//rarity (xp drop)
+
+Cchance =70 //common chance 70
+Uchance = 25 //Uncommon chance 25
+Rchance = 5 //Rare chance 5
+
+
+//initialize XP drop array with all of the xp chances
+array = [Cchance,Uchance,Rchance]
 
 state = enemystate.chasing
-target = oPlayer
+
+//set xp drops amount
+
+xpmax = 3
+xpmin = 1
+xpdrop = irandom_range(xpmin,xpmax)
+
+//set up pathfinding delay
+alarm_set(1,pathdelay)
 
 
-radius = 1
+//keeps track of the image xscale, so it doesn't change when hit
+spriteside = image_xscale
+

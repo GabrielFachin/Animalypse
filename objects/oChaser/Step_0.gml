@@ -1,130 +1,140 @@
-           target_x = oPlayer.x
-            target_y = oPlayer.y
-
-#region sensors
-
-if IsHit
+//updates target locations in case there's one
+if target != noone
 {
-state = enemystate.hit
-target_x = noone
-target_y = noone
+target_x = target.x
+target_y = target.y
 }
 
-
-var weight = 0
-
-
-//----- Set Interest Sensors -----\\
-var i,angle,goal_direction,difference;
-goal_direction = point_direction(x,y,target_x,target_y) //find target direction
-for (i=0;i<oa_sensor_count;i++) //loop through all interest sensors
-    {
-    angle = (360 / oa_sensor_count) * i //direction of current sensor
-    difference = abs(angle_difference(angle,goal_direction)) //find angle difference of sensor from goal direction
-    oa_interest_sensor[i] = (180 - difference) / 180 //set sensor to normalized difference
-    }
-
-//----- Set Danger Sensors -----\\
-var j,n,col,distance,list;
-for (i=0;i<oa_sensor_count;i++)
-    {
-	var weight	
-    oa_danger_sensor[i] = 0 //reset danger sensor to 0
-    angle = (360 / oa_sensor_count) * i //direction of current sensor
-    list = ds_list_create() //create list for collision line detection
-    //fill list with collidable targets (par_detectable)
-    n = collision_line_list(x,y,x+lengthdir_x(oa_sensor_length,angle),y+lengthdir_y(oa_sensor_length,angle),oParDetectable,1,1,list,0)
-    //loop through list of collidable instances to affect danger sensors
-    for (j=0;j<n;j++)
-        {
-        col = ds_list_find_value(list,j) //get collidable instance
-        distance = point_distance(x,y,col.x,col.y) //get distance to collidable instance origin
-        switch col.object_index //set danger weight based on object type
-            {
-            case oCollision: weight = 1.0; 
-			{
-				if distance_to_object(target) < 50
-				weight = .2
-				else
-				weight = 1
-			
-			break; //full weight if wall
-			}
-            case oEnemyG: weight = 0.5; break; //half weight if unit
-            }
-        //set danger sensor baseds on distance from collidable instance and weight
-        oa_danger_sensor[i] = max(oa_danger_sensor[i],(oa_sensor_length - distance) / oa_sensor_length * weight);
-        }
-    ds_list_destroy(list) //free up collision list
-    }
-
-//----- Calculate Resulting Direction -----\\
-var i,result_x,result_y,potential_list,dir;
-
-//populate potential direction list with danger directions below a fixed amount
-potential_list = ds_list_create()
-for (i=0;i<oa_sensor_count;i++)
-    {
-    //if danger result is < .4 add to "OK" directions list
-    if oa_danger_sensor[i] < .4
-        {
-        ds_list_add(potential_list,i)
-        }
-    }
-
-//average interest directions from potential list weighted based on interest direction value
-var potential_direction,interest,diff;
-result_x = 0
-result_y = 0
-for (i=0;i<ds_list_size(potential_list);i++)
-    {
-    potential_direction = ds_list_find_value(potential_list,i)
-    interest = oa_interest_sensor[potential_direction]
-    dir = (360 / oa_sensor_count) * potential_direction
-    //further weight based on how close direction is to current direction to favor current direction
-    diff = abs(angle_difference(dir,oa_result))
-    result_x += lengthdir_x(interest,dir) * sqr((180 - diff) / 180)
-    result_y += lengthdir_y(interest,dir) * sqr((180 - diff) / 180)
-    }
-    
-ds_list_destroy(potential_list)
-oa_result = point_direction(0,0,result_x,result_y)
-
-//----- Movement and image_angle Update -----\\
-hm = lengthdir_x(spd,oa_result)
-vm = lengthdir_y(spd,oa_result)
-
-#endregion
-
-
+//state machine
 switch state
 {
-           
-		   case enemystate.chasing :
-		   {
+	
+		
+		case enemystate.chasing:
+	{
+	image_speed = 1
+	//keeps the animation looping 
+	 if floor(image_index) >= walkend
+	 image_index = walkstart
+	 
+	 //set the player as the target
+	 target = oPlayer
+	 
+	 //changes sprites xscale to direction in case the new direction has already been set
+	 if newpath 
+	 if sign(hm) = 1
+	image_xscale = -1
+	else
+	image_xscale = 1
 
-             target_x = target.x
-            target_y = target.y
-
-			  break
-		   }
+	   newpath = false	
+		break}
 	
 	
-	         case enemystate.hit :
-		      {
-          
-		  target_x = noone
-		  target_y = noone
-		  
-                hm = -lengthdir_x(oWeapon.recoil_push, _dir) 
- 
-                vm = -lengthdir_y(oWeapon.recoil_push, _dir) 
-
-			  break
-		   }
+			case enemystate.hit:
+	{ 
+		//stops the animation, keeps the xscale the same as before getting hit
+		image_speed = 0
+		image_xscale = spriteside
+		
+		//stunlocks him
+		alarm[3] = attackcooldown
+		break}
+		
+		
+					case enemystate.attacking:
+	{ 
+		//stops and play the attack animation
+		hm = 0
+		vm = 0
+		
+		//starts attack sequence
+		if attacking = false
+		{
+			//sets the image speed to match attack duration
+		_attack = attackduration / room_speed /10
+		image_speed = (attackend - attackstart) / (room_speed * _attack)
+		
+		//sets sprite to the first frame of the attack and tells sequence has initiated
+		image_index = attackstart
+		attacking = true
+		
+		//sets the duration of the attack duration
+		alarm[2] = attackduration
+		}
+	   //if on the ''damaging'' frame
+		if floor (image_index >= attackstart +1)
+		
+		//deals damage in case the player isn't immune
+		with(instance_create_depth(x,y,0,oDamageHitbox))
+		{
+		dmg = other.dmg
+		duration =  10
+		knockback = other.knockback
+		}
+		
+	   
+		break}
+	
+	
+	
+		case enemystate.dying:
+	{
+		//clears out hit tracking variables
+		IsHit = false 
+		
+		//changes animation speed and deletes hitbox
+		image_speed = 0.8 //0.8
+		mask_index = sNoCollision
+		
+		//delete lighting
+		radius = 0
+		
+		//starts death animation
+		if floor(image_index) < deathstart
+		image_index = deathstart	
+		if floor(image_index) = deathend
+		{
+		for (var i = 0 ; i < xpdrop; i++){
+			
+	     rarity = RandomizeUncertain(array) - 1 //get xp rarity 
+		GetXpDrops(rarity,pool,id)	//spawns xp
+		}
+		DeathManager(sprite_index,deathend,0.5,id,image_xscale) //create the dead sprite on the corpse surface
+		}
+		
+		
+		
+		
+		break}	
 	
 	
 }
 
+// in case trying to be hit, allows hit 
+	if TryHit
+	{
+	TryHit = false	//no more trying to be hit
+	IsHit = true  //starts hit sequence
+	state = enemystate.hit 
+	alarm[0] = hitduration //starts hit state duration alarm
+	}
 
-event_inherited();
+//starts dying state
+if hp <= 0
+{
+state = enemystate.dying
+alarm[0] = 500
+alarm[1] = 500
+alarm[2] = 500
+alarm[3]  = 500
+}
+
+//update location if not dead
+if state != enemystate.dying
+{
+x += hm
+y += vm
+}
+
+depth = -y

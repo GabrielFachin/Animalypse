@@ -1,18 +1,8 @@
-if negative
-if xdist < 0
-{
-x+= xdist * 0.15
-xdist -= xdist * 0.15
-}
-else 
- if xdist > 0
-{
-x+= xdist * 0.15
-xdist-= xdist * 0.15
-}
+hm = -lengthdir_x(xmove,dir)
+vm = -lengthdir_y(ymove,dir)
 
-if ydist > 0
-{
-y += ydist
-ydist --
-}
+xmove *= 0.8
+ymove *=0.8
+
+x+= hm
+y+= vm
