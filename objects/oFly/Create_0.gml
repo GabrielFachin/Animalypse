@@ -2,20 +2,25 @@
 event_inherited()
 
 
-//Color config
-intensity = 0.1 //0.1
-col = make_color_rgb(200,200,200)
-radius = 1 //0.1
-
-
 //Corpse surf value
 darken = 0.5
 
-//Speed
-tot_spd = 1.5
+//Speed variable definitions
+
+//spd variable on dynamic variables 
 spd = tot_spd
+
+
 pool = Tier.Common
 
+//attack animation duration
+attackduration = room_speed * 0.5
+
+//sets an cooldown for the attack
+attackcooldown = room_speed * 2
+
+//sets attack range
+attackrange = 10
 
 
 //animation variables
@@ -26,26 +31,23 @@ deathend = 6
 
 //walk animation
 walkstart = 0
-walkend = 4
+walkend = 3
+
+//attack animation
+attackstart = 7
+attackend = 9
 
 
-//amount of xp drops
-minxp = 1
-maxxp = 2
-
-
-//hp
-tot_hp = 10
+//hp variable on dynamic variables 
 hp = tot_hp
 
 
-//dmg
-tot_dmg = 10
+//dmg variable on dynamic variables 
 dmg = tot_dmg
 
 
 //set knockback dealt to player
-knockback  = 2
+knockback  = 3
 
 
 //movement code
@@ -56,12 +58,16 @@ vm = 0
 //amount of time to stay on the hit state
 hitduration = 10
 
+//flag variables
+
 //hit variable to trigger hit state if possible
 TryHit = false
 
 //the enemy got hit with success
 IsHit = false
 
+//keeps track of when the attack state starts, so we can change the sprite once to the attack sequence
+attacking = false
 
 //shadow script variables
 wid = 0.8
@@ -92,11 +98,50 @@ xpmin = 1
 xpdrop = irandom_range(xpmin,xpmax)
 
 //set up pathfinding delay
-alarm_set(1,codedelay)
+alarm_set(1,pathdelay)
 
 
 //keeps track of the image xscale, so it doesn't change when hit
 spriteside = image_xscale
 
-//keeps track of the pathfinding update rate
-newpath = false
+//gets if the enemy is ivulnerable 
+_CanBeHit = true
+
+//initiates HitTimer
+HitTimer = hitduration
+
+//initiates PathTimer
+PathTimer = pathdelay
+
+AttackcdTimer = attackcooldown
+
+AttackStateTimer = attackduration
+
+defaultstate = enemystate.chasing
+
+
+HitReset = function(defaultstate)
+{
+	
+state = defaultstate	
+IsHit = false	
+	
+}
+
+
+pathfind = function()
+{
+	
+	FindPath(x,y,target_x,target_y)
+	UpdateSpriteDir()
+	
+}
+	
+
+AttackReset = function()
+{
+
+attacking = false
+state = enemystate.chasing
+	
+}

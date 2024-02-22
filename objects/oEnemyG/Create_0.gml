@@ -21,6 +21,16 @@ contactdamage = false
 
 pathdelay = room_speed * 0.1		
 
+function DyingState()
+{
+	
+image_index = deathstart	
+state = enemystate.dying
+
+}
+
+function CanBeHit(arg){_CanBeHit = arg}
+
 oa_sensor_count = 24 //set initial sensor count
 oa_interest_sensor = array_create(oa_sensor_count) //initialize array for interest sensors
 oa_danger_sensor = array_create(oa_sensor_count) //initialize array for danger sensors

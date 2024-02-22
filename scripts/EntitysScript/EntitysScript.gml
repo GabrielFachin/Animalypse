@@ -1,44 +1,36 @@
-//get Xp drops
-function GetXpDrops(_rarity,_pool,entity)
+function DeathManager(sprite,index,intensity,entity,side)
 {
-Item_Pool()
-
- var _selected = []
- 
- for (var i = 0; i < array_length(XPs); i ++){
-	 var _item = XPs[i]
-	 	 
-	 
-	 if _item.Pool == _pool and _item.Rarity == _rarity
-	 array_push(_selected, _item)}
-   
-array_shuffle(_selected,_item)
- 
-drop = _selected[0]
-
-var drop_value = drop.Value
-
-var drop_sprite =  drop.Sprite
-    
-     var _xoffset = random_range(-20,20)
-     var _yoffset = random_range(-20,20)
-
- with instance_create_layer(entity.x + _xoffset, entity.y + _yoffset,"Instances",oXP)
+	
+	var wid = window_get_width()
+	var hei = window_get_height()
+	
+	if wid and hei > 0
+	{
+	
+if !surface_exists(global.CorpsesSurf)
+global.CorpsesSurf = surface_create(wid,hei)
+else
 {
-value = drop_value
+	
+shader_set(ShGrey)
+surface_set_target(global.CorpsesSurf)
 
-sprite_index = sXP
+var handler = shader_get_uniform(ShGrey,"intensity")
 
-image_index = drop_sprite
+shader_set_uniform_f(handler,intensity)
 
-rarity = drop_sprite
+draw_sprite_ext(sprite,index,entity.x,entity.y,side,1,0,c_white,1)
+
+surface_reset_target()
+
+instance_destroy(entity)
+shader_reset()
+
+
 }
-
- 
+	
 }
-
-
-
+}
 
 
 
@@ -49,4 +41,83 @@ function DrawShadow(entity,wid,hei,y_offset)
 
 }
 
+function LoopAnimation(start,last)
+{
+	if floor(image_index) > last
+	 image_index = start
+}
 
+function UpdatePos(len,dir)
+{
+	
+hm = lengthdir_x(len,dir)
+vm = lengthdir_y(len,dir)
+
+}
+
+function UpdateSpriteDir()
+{
+	
+		 //changes sprites xscale to direction in case the new direction has already been set
+	 if sign(hm) !=0
+	image_xscale = sign(hm)
+	
+}
+
+function DeleteHitbox()
+{
+
+mask_index = sNoCollision
+
+}
+
+function FitAnimationSpeed(duration,start,last)
+{
+
+var totalduration = duration / room_speed /10
+image_speed = (last - start) / (room_speed * totalduration)
+	
+}
+
+function WallCollision()
+{
+	
+if place_meeting(x,y+vm,oCollision){
+	while !place_meeting(x,y + sign(vm),oCollision){
+	y += sign(vm)
+	}
+vm = 0
+}
+
+if place_meeting(x + hm,y,oCollision){
+	while !place_meeting(x + sign(hm),y,oCollision){
+		x += sign(hm)
+	}
+hm = 0
+}	
+	
+}
+
+
+function RunTimerWReset(timer,reset,firefunc,arg) 
+{
+	if timer --= 0
+	 {
+		 timer = reset
+		 if firefunc != noone
+		 firefunc(arg)
+	 }
+	return(timer)
+	
+}
+
+
+function RunTimer(timer)
+{
+	
+	if timer > 0
+	timer --
+	
+	return(timer)
+	
+}

@@ -17,21 +17,28 @@ instance_create_depth(x,y,0,oPauseControl)
 switch oWeapon.wield {
 	
 //case fists
-case Wield.Fists: var idle_start = idle1_start var idle_end = idle1_end
-var walkstart = walking1_start var walkend = walking1_end break
+case Wield.Fists:  idle_start = idle1_start  idle_end = idle1_end
+ walkstart = walking1_start  walkend = walking1_end break
 
 //case single hand
-case Wield.SingleHand: var idle_start = idle2_start var idle_end = idle2_end
-var walkstart = walking2_start var walkend = walking2_end break
+case Wield.SingleHand: idle_start = idle2_start idle_end = idle2_end
+walkstart = walking2_start  walkend = walking2_end break
 
 
 //case both hands
-case Wield.BothHands: var idle_start = idle3_start var idle_end = idle3_end
-var walkstart = walking3_start var walkend = walking3_end break
+case Wield.BothHands:  idle_start = idle3_start  idle_end = idle3_end
+ walkstart = walking3_start  walkend = walking3_end break
 }
 
 //gets idle starting sprite so i can set it on the dash end alarm
-idlestart = idle_start
+
+
+//puts player animation at first idle frame if it's the first time loading sprites
+if firstloop
+{
+image_index = idle_start
+firstloop = false
+}
 
 //movement
 var uk = keyboard_check(ord("W"))
@@ -104,11 +111,8 @@ function ChecksHitboxCollision()
 }
  
  //gets direction player is moving towards
-var mv_dir = point_direction(x,y, x+hm, y +vm) 
+mv_dir = point_direction(x,y, x+hm, y +vm) 
 
- 
- show_debug_message(vulnerable)
- 
   switch state
 		{
 			case State.Idle :
@@ -118,16 +122,12 @@ var mv_dir = point_direction(x,y, x+hm, y +vm)
 				ChecksHitboxCollision()
 				
 				//switches sprite to idle animation
-				if  floor(image_index) > idle_end
-				image_index = idle_start
+				LoopAnimation(idle_start,idle_end)	
 				
-				//switches to the walking state
-				if hm != 0 or vm != 0
-				{
-				//sets sprite to the first frame on the walk animation	
-				image_index = walkstart
-				state = State.Walking
-				}
+				//switches to the walking state	
+				if walking
+				WalkState()
+				
 				break
 			}
 			
@@ -139,55 +139,26 @@ var mv_dir = point_direction(x,y, x+hm, y +vm)
 								
 				//if alarm[7] is ''off'' (last number that you can get, 1) create particles
 				if alarm[7] = 1
-				 WalkEffect(x+hm,y+8)
+				 WalkEffect(x+hm,y)
 				 
-				if  floor(image_index) > walkend
-				image_index = walkstart	
+				 //loops walking animation
+				LoopAnimation(walkstart,walkend)
 				
-				//switches to the idle state if no buttons are being pressed
-				 if hm = 0 and vm = 0
-				 {
-				//sets sprite to the first frame on the idle animation
-				image_index = idle_start	 
-				state = State.Idle
-				 }
+				//switches to idle state
+				if stopped
+				IdleState()
 				
-				//moves towards said direction
-				hm = lengthdir_x(mv_spd,mv_dir)
-				vm = lengthdir_y(mv_spd,mv_dir)
+				//moves towards said direction (if walking works as a fix to a bug)
+				if walking
+				UpdatePos(mv_spd,mv_dir)
 				
 				//checks enemy collision, and changes hm and vm in case of collision
 				CheckEnemyCollision()
 
-				//switches to the dashing state 
+				//switches to the dashing state if pressing dash key and dash is out of cooldown
 				 if dshk and alarm[4] = -1 
-				 {
-				
-				//gets animation duration according to dash duration
-				var	_dsh_dur = dash_duration / room_speed /10	 
-				
-				//changes image speed so it maches dash duration
-			    image_speed =(dash_end - dash_start) / (room_speed * _dsh_dur)
-				
-				//sets sprite to the first dash frame
-				image_index = dash_start	
-				
-				//starts dash state reset alarm
-				alarm[3] = dash_duration
-				
-				//sets image direction
-				if hm != 0
-			  image_xscale = sign(hm)
-				
-				//changes particle flag variable
-				stoppart = false
-				
-				//gets the direction of the dash based on the last direction the player moved
-				dash_dir = mv_dir
-				
-				//finally switch states
-				state = State.Dashing
-				 }
+				RollState()
+					
 				
 				break
 			}
@@ -196,8 +167,7 @@ var mv_dir = point_direction(x,y, x+hm, y +vm)
 			{
 				
 			//moves toward last pressed buttons	
-			hm = lengthdir_x(dsh_spd,dash_dir)
-			vm = lengthdir_y(dsh_spd,dash_dir)
+			UpdatePos(dsh_spd,dash_dir)
 											
 			//cria particula no roll se o sprite estiver no 36 (tocando no chão)
 			if floor(image_index) = 36 and stoppart = false
@@ -212,11 +182,9 @@ var mv_dir = point_direction(x,y, x+hm, y +vm)
 		case State.Hit :
 		{
 			image_speed = 0
-			  hm = -lengthdir_x(knockamount,knockdir) 
-			  vm =  -lengthdir_y(knockamount,knockdir)
+			 UpdatePos(-knockamount,knockdir)
 			
-			break
-		}
+			break	}
 		
 }
 
@@ -230,21 +198,8 @@ vm -= lengthdir_y(oWeapon.self_recoil_push, oWeapon._ImgAngle)
 
 
 
-if place_meeting(x,y+vm,oCollision){
-	while !place_meeting(x,y + sign(vm),oCollision){
-	y += sign(vm)
-	}
-vm = 0
-}
-
-if place_meeting(x + hm,y,oCollision){
-	while !place_meeting(x + sign(hm),y,oCollision){
-		x += sign(hm)
-	}
-hm = 0
-}
-
-
+//wall collision
+WallCollision()
 
 
 if hp <= 0

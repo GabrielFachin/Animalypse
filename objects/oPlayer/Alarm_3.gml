@@ -4,7 +4,7 @@ OnDash = false
 
 image_speed = 1
 
-image_index = idlestart
+image_index = idle_start
 state = State.Idle
 
 alarm[4] = dash_cooldown

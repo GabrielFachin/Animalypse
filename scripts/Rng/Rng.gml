@@ -7,7 +7,7 @@ var length = array_length(argument0)
 
 for (var i = 0; i < length; i++)
 {
- pool[i] = i + 1
+ pool[i] = i	
  rarity[i] = argument0[i]
 }
 

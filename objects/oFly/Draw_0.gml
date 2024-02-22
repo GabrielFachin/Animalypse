@@ -9,7 +9,7 @@ if IsHit
 	shader_reset()
 }
 
-if global.debug = true
+if global.debug = true and global.pathdraw = true
 {
 DrawPath()
 draw_text(x,y - 30,state)

@@ -1,19 +1,13 @@
 //Enumerators
 event_inherited()
 
-//Color config set on the variable definitions
-
-//intensity 0.1
-//col (200,200,200)
-//radius 1
-
 
 //Corpse surf value
 darken = 0.5
 
 //Speed variable definitions
 
-//tot_spd = 2.5
+//spd variable on dynamic variables 
 spd = tot_spd
 
 
@@ -37,26 +31,18 @@ deathend = 6
 
 //walk animation
 walkstart = 0
-walkend = 4
+walkend = 3
 
 //attack animation
 attackstart = 7
 attackend = 9
 
 
-//amount of xp drops
-minxp = 1
-maxxp = 2
-
-
-//hp variable definitions
-
-//tot_hp = 10
+//hp variable on dynamic variables 
 hp = tot_hp
 
 
-//dmg varible definitions
-//tot_dmg = 10
+//dmg variable on dynamic variables 
 dmg = tot_dmg
 
 
@@ -69,19 +55,16 @@ hm = 0
 vm = 0
 
 
-//flag variables
-
 //amount of time to stay on the hit state
 hitduration = 10
+
+//flag variables
 
 //hit variable to trigger hit state if possible
 TryHit = false
 
 //the enemy got hit with success
 IsHit = false
-
-//keeps track of the pathfinding update rate
-newpath = false
 
 //keeps track of when the attack state starts, so we can change the sprite once to the attack sequence
 attacking = false
@@ -117,7 +100,47 @@ xpdrop = irandom_range(xpmin,xpmax)
 //set up pathfinding delay
 alarm_set(1,pathdelay)
 
-
 //keeps track of the image xscale, so it doesn't change when hit
 spriteside = image_xscale
+
+//gets if the enemy is ivulnerable 
+_CanBeHit = true
+
+//initiates HitTimer
+HitTimer = hitduration
+
+//initiates PathTimer
+PathTimer = pathdelay
+
+AttackcdTimer = attackcooldown
+
+AttackStateTimer = attackduration
+
+defaultstate = enemystate.chasing
+
+
+HitReset = function(defaultstate)
+{
+	
+state = defaultstate	
+IsHit = false	
+	
+}
+
+
+pathfind = function()
+{
+	FindPath(x,y,target_x,target_y)
+	UpdateSpriteDir()
+	
+}
+
+AttackReset = function()
+{
+
+attacking = false
+state = enemystate.chasing
+	
+}
+	
 

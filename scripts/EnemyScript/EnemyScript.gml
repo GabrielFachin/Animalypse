@@ -29,7 +29,11 @@ for (i=0;i<oa_sensor_count;i++)
         distance = point_distance(_x,_y,col.x,col.y) //get distance to collidable instance origin
         switch col.object_index //set danger weight based on object type
             {
-            case oCollision: weight = 1.0; 
+            case oCollision: 
+			if collision_line(x,y,target_x,target_y,oCollision,0,0)
+			weight = 1.0; 
+			else 
+			weight = 0.1
 			{
 			
 			break; //full weight if wall
@@ -122,43 +126,120 @@ draw_set_color(c_white)
 	
 	
 }
+	
+	//get Xp drops
+function GetXpDrops(_rarity,_pool,entity)
+{
+Item_Pool()
+
+ var _selected = []
+ 
+ for (var i = 0; i < array_length(XPs); i ++){
+	 var _item = XPs[i]
+	 	 
+	 
+	 if _item.Pool == _pool and _item.Rarity == _rarity
+	 array_push(_selected, _item)}
+   
+array_shuffle(_selected,_item)
+ 
+drop = _selected[0]
+
+var drop_value = drop.Value
+
+var drop_sprite =  drop.Sprite
+    
+     var _xoffset = random_range(-20,20)
+     var _yoffset = random_range(-20,20)
+
+ with instance_create_layer(entity.x + _xoffset, entity.y + _yoffset,"Instances",oXP)
+{
+value = drop_value
+
+sprite_index = sXP
+
+image_index = drop_sprite
+
+rarity = drop_sprite
+}
+
+ 
+}
+
+	
+	
+	
+	
 
 
 
+function SingleAttackSequence(start,duration) //@description changes sprite to the first one, sets attack state duration
+{
+
+		if attacking = false
+		{		
+		//sets sprite to the first frame of the attack and tells sequence has initiated
+		image_index = start
+
+		//sets the duration of the attack duration
+		AttackStateTimer = duration
+		
+		attacking = true
+		}
+	
+}
 
 
-
-function DeathManager(sprite,index,intensity,entity,side)
+function CreateSingleHitbox(xoffset,yoffset,_dmg,life,_knockback,entID)
 {
 	
-	var wid = window_get_width()
-	var hei = window_get_height()
+		with(instance_create_depth(x,y,0,oDamageHitbox))
+		{
+		dmg = _dmg
+		duration =  life
+		knockback = _knockback
+		}	
 	
-	if wid and hei > 0
-	{
-	
-if !surface_exists(global.CorpsesSurf)
-global.CorpsesSurf = surface_create(wid,hei)
-else
+}
+
+function CheckProjectileCollision()
 {
-	
-shader_set(ShGrey)
-surface_set_target(global.CorpsesSurf)
+	var ID = instance_place(x,y,oProjectile) //checks if i'm getting any ID 
+   dir = point_direction(x,y,ID.xprevious,ID.yprevious)  //knockback direction 
+   	state = enemystate.hit 
+	HitTimer = hitduration //starts hit state duration alarm
+	 hp -= ID.damage
+	 knockback = oWeapon.recoil_push
+  }
 
-var handler = shader_get_uniform(ShGrey,"intensity")
+function CheckAttack()
+{
+if place_meeting(x,y,oPlayer)
+if oPlayer.OnDash = false 
+{
+state = enemystate.attacking
+AttackcdTimer = attackcooldown
+}
+}
 
-shader_set_uniform_f(handler,intensity)
-
-draw_sprite_ext(sprite,index,entity.x,entity.y,side,1,0,c_white,1)
-
-surface_reset_target()
-
-instance_destroy(entity)
-shader_reset()
-
+function AllyCollisionPush()
+{
+  var ID = instance_place(x,y,oEnemyG)
+if ID{
+var _diff_x = x - ID.x;
+        var _diff_y = y - ID.y;
+        hm = hm + (_diff_x / 90); //128
+        vm = vm + (_diff_y / 90); //128
+}
 
 }
-	
+
+function UpdateTargetPos()
+{
+	if target != noone
+{
+target_x = target.x
+target_y = target.y
 }
 }
 

@@ -13,4 +13,5 @@ if global.debug = true and global.pathdraw = true
 {
 DrawPath()
 draw_text(x,y - 30,state)
+draw_text(x,y-60,target_x)
 }
