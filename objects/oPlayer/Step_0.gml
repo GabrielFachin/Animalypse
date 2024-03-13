@@ -109,6 +109,28 @@ function ChecksHitboxCollision()
 }
 
 }
+
+function ChecksProjectileCollision()
+{
+	if vulnerable
+	{
+	var ID = instance_place(x,y,oEProjectile) //checks if i'm getting any ID 
+  if ID  //if i found something
+  {
+   knockdir = point_direction(x,y,ID.x,ID.y)  //knockback direction 
+   alarm[8] = HitDuration //Sets HIt state reset alarm
+   vulnerable = false //turn on Iframes
+	alarm[0] = ivulnerability //sets Iframe duration
+	alarm[1] = 5
+	oControl.hpcolor = c_red
+	oControl.alarm[0] = oControl.hp_delay
+	 state = State.Hit 
+	 hp -= ID.dmg
+	 knockamount = ID.knockback
+  }
+}
+
+}
  
  //gets direction player is moving towards
 mv_dir = point_direction(x,y, x+hm, y +vm) 
@@ -120,6 +142,7 @@ mv_dir = point_direction(x,y, x+hm, y +vm)
 				GetSpriteDir()
 				CheckEnemyCollision()
 				ChecksHitboxCollision()
+				ChecksProjectileCollision()
 				
 				//switches sprite to idle animation
 				LoopAnimation(idle_start,idle_end)	
@@ -135,6 +158,7 @@ mv_dir = point_direction(x,y, x+hm, y +vm)
 			{
 				GetSpriteDir()
 				ChecksHitboxCollision()
+				ChecksProjectileCollision()
 
 								
 				//if alarm[7] is ''off'' (last number that you can get, 1) create particles
@@ -175,6 +199,7 @@ mv_dir = point_direction(x,y, x+hm, y +vm)
 			stoppart = true
 			RollEffect(x,y + 10) 
 			}
+			
 				
 			break
 	 	}

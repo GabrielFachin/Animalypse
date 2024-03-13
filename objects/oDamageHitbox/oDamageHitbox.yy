@@ -32,5 +32,5 @@
     "path": "sprites/sHedgeHogDamage/sHedgeHogDamage.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

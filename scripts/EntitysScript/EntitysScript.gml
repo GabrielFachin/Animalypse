@@ -34,9 +34,9 @@ shader_reset()
 
 
 
-function DrawShadow(entity,wid,hei,y_offset)
+function DrawShadow(entity,wid,hei,y_offset,x_offset)
 {
- draw_sprite_ext(sShadow,-1,entity.x, entity.y + y_offset, wid,hei,1,c_white,0.5)
+ draw_sprite_ext(sShadow,-1,entity.x + x_offset, entity.y + y_offset, wid,hei,1,c_white,0.5)
 
 
 }
@@ -74,8 +74,8 @@ mask_index = sNoCollision
 function FitAnimationSpeed(duration,start,last)
 {
 
-var totalduration = duration / room_speed /10
-image_speed = (last - start) / (room_speed * totalduration)
+var totalduration = duration / 10
+image_speed = (last - 1 - start) /  totalduration //-1
 	
 }
 
@@ -119,5 +119,13 @@ function RunTimer(timer)
 	timer --
 	
 	return(timer)
+	
+}
+
+function CheckWallCollision(firefunc,arg)
+{
+	
+if place_meeting(x + hm,y + vm,oCollision)	
+firefunc(arg)
 	
 }

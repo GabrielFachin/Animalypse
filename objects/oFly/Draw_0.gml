@@ -1,4 +1,4 @@
-DrawShadow(id,wid,hei,yoffset)
+DrawShadow(id,wid,hei,yoffset,xoffset)
 
 draw_self()
 

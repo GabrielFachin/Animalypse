@@ -1,6 +1,6 @@
 var _blink = 8
 
-DrawShadow(id,0.6,0.6,7.3)
+DrawShadow(id,0.6,0.6,7.3,0)
 
  if alarm[0] % _blink <= _blink/2 
   draw_self()

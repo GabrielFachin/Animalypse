@@ -1,4 +1,4 @@
-DrawShadow(id,wid,hei,yoffset)
+DrawShadow(id,wid,hei,yoffset,xoffset)
 
 draw_self()
 
@@ -9,9 +9,10 @@ if IsHit
 	shader_reset()
 }
 
-if global.debug = true and global.pathdraw = true
+if global.debug = true 
 {
-DrawPath()
-draw_text(x,y - 30,state)
-draw_text(x,y-60,target_x)
+draw_text(x,y - 30,offset)
 }
+
+if global.debug = true and global.pathdraw = true
+DrawPath()

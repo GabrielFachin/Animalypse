@@ -8,10 +8,9 @@ switch state
 		//updates pathfinding
     	target = oPlayer
 		
-		CheckAttack()
-		 UpdateTargetPos()
+		 UpdateTargetPos(offset,OffsetDist)
 		 AllyCollisionPush()
- 
+		 
  
 		PathTimer  =     	RunTimerWReset(PathTimer,pathdelay,pathfind,noone)
 		AttackcdTimer = RunTimer(AttackcdTimer)
@@ -22,7 +21,7 @@ switch state
 	
 	//keeps the animation looping 
 	LoopAnimation(walkstart,walkend)
-	 
+		 
 		break}
 	
 		

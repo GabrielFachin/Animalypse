@@ -3,12 +3,17 @@
   "resourceVersion": "1.0",
   "name": "oDasher",
   "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"tot_dmg","path":"objects/oEnemyG/oEnemyG.yy",},"value":"30",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"intensity","path":"objects/oEnemyG/oEnemyG.yy",},"value":"0.1",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"col","path":"objects/oEnemyG/oEnemyG.yy",},"value":"$00C8C8C8",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"radius","path":"objects/oEnemyG/oEnemyG.yy",},"value":"0.5",},
+  ],
   "parent": {
     "name": "Enemies",
     "path": "folders/Objects/Enemies.yy",

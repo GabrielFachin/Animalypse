@@ -1,4 +1,4 @@
-//Enumerators and functions
+//Enumerators
 event_inherited()
 
 
@@ -9,6 +9,10 @@ darken = 0.5
 
 //spd variable on dynamic variables 
 spd = tot_spd
+
+
+//sets hit state on bullet collision
+HitState = enemystate.hit
 
 
 pool = Tier.Common
@@ -37,6 +41,7 @@ walkend = 3
 attackstart = 7
 attackend = 9
 
+OffsetDist = 60
 
 //hp variable on dynamic variables 
 hp = tot_hp
@@ -73,6 +78,7 @@ attacking = false
 wid = 0.8
 hei = 0.8
 yoffset = 7
+xoffset = 0
 
 //initialize target 
 target = noone
@@ -100,7 +106,6 @@ xpdrop = irandom_range(xpmin,xpmax)
 //set up pathfinding delay
 alarm_set(1,pathdelay)
 
-
 //keeps track of the image xscale, so it doesn't change when hit
 spriteside = image_xscale
 
@@ -119,6 +124,8 @@ AttackStateTimer = attackduration
 
 defaultstate = enemystate.chasing
 
+MinDist = 60
+
 
 HitReset = function(defaultstate)
 {
@@ -128,15 +135,15 @@ IsHit = false
 	
 }
 
+offset = irandom_range(-50,50)
 
 pathfind = function()
 {
-	
 	FindPath(x,y,target_x,target_y)
 	UpdateSpriteDir()
-		
-}
 	
+}
+
 AttackReset = function()
 {
 
@@ -144,3 +151,5 @@ attacking = false
 state = enemystate.chasing
 	
 }
+	
+

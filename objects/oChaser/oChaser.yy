@@ -11,7 +11,10 @@
   "overriddenProperties": [
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"col","path":"objects/oEnemyG/oEnemyG.yy",},"value":"$00C8C8C8",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"radius","path":"objects/oEnemyG/oEnemyG.yy",},"value":"1",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"tot_spd","path":"objects/oEnemyG/oEnemyG.yy",},"value":"2.5",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"tot_spd","path":"objects/oEnemyG/oEnemyG.yy",},"value":"3",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"intensity","path":"objects/oEnemyG/oEnemyG.yy",},"value":"0.1",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"tot_dmg","path":"objects/oEnemyG/oEnemyG.yy",},"value":"20",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oEnemyG","path":"objects/oEnemyG/oEnemyG.yy",},"propertyId":{"name":"tot_hp","path":"objects/oEnemyG/oEnemyG.yy",},"value":"6",},
   ],
   "parent": {
     "name": "Enemies",

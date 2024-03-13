@@ -46,7 +46,7 @@ firstloop = true
 HitDuration = 10
 
 //lighting variables
-intensity = 0.4
+intensity = 0.4 //0.4
 col = make_color_rgb(150,110,0)
 radius = 0.9
 

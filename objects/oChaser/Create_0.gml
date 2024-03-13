@@ -3,13 +3,17 @@ event_inherited()
 
 
 //Corpse surf value
-darken = 0.5
+darken = 0.5 //0.5
 
 //Speed variable definitions
 
 //spd variable on dynamic variables 
 spd = tot_spd
 
+
+//hp 6
+
+//spd 3.0
 
 pool = Tier.Common
 
@@ -37,6 +41,7 @@ walkend = 3
 attackstart = 7
 attackend = 9
 
+OffsetDist = 60
 
 //hp variable on dynamic variables 
 hp = tot_hp
@@ -47,7 +52,7 @@ dmg = tot_dmg
 
 
 //set knockback dealt to player
-knockback  = 3
+knockback  = 5
 
 
 //movement code
@@ -73,6 +78,7 @@ attacking = false
 wid = 0.8
 hei = 0.8
 yoffset = 7
+xoffset = 0
 
 //initialize target 
 target = noone
@@ -93,7 +99,7 @@ state = enemystate.chasing
 
 //set xp drops amount
 
-xpmax = 3
+xpmax = 2
 xpmin = 1
 xpdrop = irandom_range(xpmin,xpmax)
 
@@ -118,6 +124,9 @@ AttackStateTimer = attackduration
 
 defaultstate = enemystate.chasing
 
+MinDist = 60
+
+HitState = enemystate.hit
 
 HitReset = function(defaultstate)
 {
@@ -127,6 +136,7 @@ IsHit = false
 	
 }
 
+offset = irandom_range(-50,50)
 
 pathfind = function()
 {
@@ -144,3 +154,13 @@ state = enemystate.chasing
 }
 	
 
+TriggerAttack = function()
+{
+	
+if oPlayer.OnDash = false 
+{
+state = enemystate.attacking
+AttackcdTimer = attackcooldown
+}
+	
+}

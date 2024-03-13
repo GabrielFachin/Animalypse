@@ -1,11 +1,6 @@
 if keyboard_check_pressed(vk_f5)
 global.debug = !global.debug
 
-if mouse_check_button_pressed(mb_right) and global.debug
-instance_create_layer(mouse_x,mouse_y,"Instances",oChaser)
-
-
-
 if global.debug
 {
 show_debug_overlay(true,false,1,0.2)
@@ -27,6 +22,9 @@ oWeapon.projectile_size += 1
 
 if keyboard_check_pressed(vk_f1)
 oWeapon.bulletspeed += 1
+
+if mouse_check_button(mb_right) 
+instance_create_layer(mouse_x,mouse_y,"Instances",oChaser)
 
 }
 else

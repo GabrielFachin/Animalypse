@@ -14,29 +14,50 @@ spd = tot_spd
 pool = Tier.Common
 
 //attack animation duration
-attackduration = room_speed * 0.5
+attackduration = room_speed * 1
+
+//sets an cooldown for the dash
+attackcooldown = room_speed * irandom_range(6,9)
 
 //sets an cooldown for the attack
-attackcooldown = room_speed * 2
+bitecooldown = room_speed * irandom_range(1,2)
+
+//sets an timer for the bite
+BitecdTimer = bitecooldown
 
 //sets attack range
-attackrange = 10
+attackrange = 120
 
+//sets dash speed 
+dashspeed = 7
+
+//sets hit state on bullet collision
+HitState = enemystate.hit
 
 //animation variables
 
 //death animation
-deathstart = 4
-deathend = 6
+deathstart = 27
+deathend = 29
 
 //walk animation
 walkstart = 0
-walkend = 3
+walkend = 5
 
-//attack animation
-attackstart = 7
-attackend = 9
+//charge animation
+chargestart =13
+chargeend = 17
 
+//dash animation
+dashstart = 18
+dashend = 24
+
+//bite animation
+bitestart = 6
+biteend = 12
+
+//chase offset
+OffsetDist = 60
 
 //hp variable on dynamic variables 
 hp = tot_hp
@@ -70,9 +91,10 @@ IsHit = false
 attacking = false
 
 //shadow script variables
-wid = 0.8
-hei = 0.8
-yoffset = 7
+wid = 1
+hei = 1
+yoffset = 17
+xoffset = -4
 
 //initialize target 
 target = noone
@@ -100,7 +122,6 @@ xpdrop = irandom_range(xpmin,xpmax)
 //set up pathfinding delay
 alarm_set(1,pathdelay)
 
-
 //keeps track of the image xscale, so it doesn't change when hit
 spriteside = image_xscale
 
@@ -113,11 +134,29 @@ HitTimer = hitduration
 //initiates PathTimer
 PathTimer = pathdelay
 
+//attack cooldown
 AttackcdTimer = attackcooldown
 
+
+MeleeDist = 30
+
+//bite state duration
+BiteDuration = room_speed * 0.7
+
+//bite timer
+BiteTimer = BiteDuration
+
+//atack duration
 AttackStateTimer = attackduration
 
+//charge duration
+ChargeDuration = room_speed * 1.5
+
+ChargeStateTimer = ChargeDuration 
+
 defaultstate = enemystate.chasing
+
+MinDist = 60
 
 
 HitReset = function(defaultstate)
@@ -128,20 +167,63 @@ IsHit = false
 	
 }
 
+offset = irandom_range(-50,50)
 
 pathfind = function()
 {
-	
 	FindPath(x,y,target_x,target_y)
 	UpdateSpriteDir()
 	
 }
-	
 
 AttackReset = function()
 {
 
 attacking = false
+contactdamage = false
 state = enemystate.chasing
+AttackStateTimer= attackduration
+HitState = enemystate.hit
+CanBeHit(true)
+
+}
+	
+BiteReset = function()
+{
+	
+	state = enemystate.chasing
+	BitecdTimer = bitecooldown
+	
+}
+
+
+
+TriggerCharge = function()
+{
+	
+if oPlayer.OnDash = false 
+{
+state = enemystate.charging
+AttackcdTimer = attackcooldown
+image_index = chargestart
+}
+
+}
+
+TriggerAttack = function()
+{
+	
+	state = enemystate.dashing
+	dashdir = point_direction(x,y,target_x,target_y)
+	
+}
+
+TriggerBite = function()
+{
+	
+	state = enemystate.bite
+	BitecdTimer = BiteDuration
+	image_index = bitestart
+	UpdateSpriteDir()
 	
 }

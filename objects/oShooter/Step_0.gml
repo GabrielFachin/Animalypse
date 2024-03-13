@@ -1,3 +1,4 @@
+
 //state machine
 switch state
 {
@@ -8,9 +9,10 @@ switch state
 		//updates pathfinding
     	target = oPlayer
 		
-		CheckAttack()
-		 UpdateTargetPos()
+		CheckTargetCol(TriggerAttack,noone) //triggers attack state
+		 UpdateTargetPos(offset,OffsetDist)
 		 AllyCollisionPush()
+		
  
  
 		PathTimer  =     	RunTimerWReset(PathTimer,pathdelay,pathfind,noone)
@@ -22,7 +24,7 @@ switch state
 	
 	//keeps the animation looping 
 	LoopAnimation(walkstart,walkend)
-	 
+		 
 		break}
 	
 		
@@ -45,7 +47,7 @@ switch state
 
 	   //if on the ''damaging'' frame
 		if floor (image_index >= attackstart +1)
-		CreateSingleHitbox(0,0,dmg,10,knockback,id)
+		CreateHitbox(0,0,dmg,10,knockback,id,1,1)
 			   
 		break}
 	
@@ -102,7 +104,7 @@ switch state
 	     rarity = RandomizeUncertain(array) //get xp rarity 
 		GetXpDrops(rarity,pool,id)	//spawns xp
 		}
-		DeathManager(sprite_index,deathend,0.5,id,image_xscale) //create the dead sprite on the corpse surface
+		DeathManager(sprite_index,deathend,darken,id,image_xscale) //create the dead sprite on the corpse surface
 		}
 		
 		

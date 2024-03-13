@@ -64,9 +64,9 @@ hp_delay = 0
 
 #macro walking3_start 12
 
-#macro walking3_end 18
+#macro walking3_end 17
 
-#macro idle1_start 19
+#macro idle1_start 18
 
 #macro idle1_end 21
 
@@ -80,7 +80,7 @@ hp_delay = 0
 
 #macro dash_start 30
 
-#macro dash_end 37
+#macro dash_end 38
 
 #endregion
 

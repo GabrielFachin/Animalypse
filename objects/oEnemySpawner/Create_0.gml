@@ -1,4 +1,4 @@
-global.timer = 60000 //60
+global.timer = 60 //60
 
 timer = global.timer
 

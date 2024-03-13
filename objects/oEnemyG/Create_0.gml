@@ -13,6 +13,8 @@ enum enemystate
 	orbiting,
     dying,
 	attacking,
+	charging,
+	bite,
 } 
 
 push = 1
@@ -36,3 +38,11 @@ oa_interest_sensor = array_create(oa_sensor_count) //initialize array for intere
 oa_danger_sensor = array_create(oa_sensor_count) //initialize array for danger sensors
 oa_sensor_length = 200 //sensor length 256
 oa_result = 0 //initialize resulting direction variable
+
+MeleeDist = 15
+
+CloseDist = 60
+
+MediumDist = 120
+
+HighDist = 240
